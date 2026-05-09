@@ -1,0 +1,197 @@
+HTTP -> HTTP stands for hyper text transfer protocol. It is used for the communication between client and web server.
+HTTP is not the only way to communicate between a client and a web server.
+HTTP is just the most common and standard way, but there are several other protocols depending on the use case.
+
+🧠 1. HTTP / HTTPS (Most common)
+Used in almost every web app
+Request → Response model
+Stateless
+Example: REST APIs, websites
+
+👉 You already know this one.
+
+⚡ 2. WebSockets
+Full-duplex (both client & server can send data anytime)
+Persistent connection (doesn’t close after one request)
+Great for:
+Chat apps
+Live notifications
+Real-time games
+🚀 3. gRPC
+High-performance communication (uses HTTP/2 internally)
+Uses Protocol Buffers instead of JSON
+Common in:
+Microservices
+Internal backend communication
+📡 4. Server-Sent Events (SSE)
+Server can push updates to client
+Client cannot send back on same connection
+Simpler than WebSockets
+📨 5. Message Queues / Brokers
+Not direct request-response
+Uses systems like:
+Kafka
+RabbitMQ
+Async communication
+Used in large scalable systems
+🔌 6. Raw TCP / UDP (Low level)
+Direct socket programming
+Used in:
+Games
+Streaming
+Custom protocols
+🧩 So what's the real picture?
+For normal apps → HTTP is enough
+For real-time → WebSockets
+For high-performance services → gRPC
+For scalable systems → Message queues
+🌐 What is HTTP Request & Response?
+
+👉 HTTP works on a simple model:
+
+Client sends Request
+Server sends Response
+
+Example:
+
+You open a website → browser sends request
+Server sends back HTML → browser renders it
+📩 1. HTTP Request (Client → Server)
+
+An HTTP request has 4 main components:
+
+1. Request Line
+
+Contains:
+
+Method (what action you want)
+URL (where)
+HTTP version
+
+Example:
+
+GET /users HTTP/1.1
+
+👉 Common methods:
+
+GET → fetch data
+POST → send data
+PUT → update
+DELETE → remove
+2. Headers
+
+Extra information about the request
+
+Example:
+
+Host: example.com
+User-Agent: Chrome
+Authorization: Bearer token123
+Content-Type: application/json
+
+👉 Used for:
+
+Authentication
+Content type
+Caching
+Cookies
+3. Body (Optional)
+
+Data sent to server (mostly in POST/PUT)
+
+Example:
+
+{
+  "name": "Piyush",
+  "age": 22
+}
+4. Query Parameters (Part of URL)
+
+Extra data in URL
+
+Example:
+
+/users?id=10&sort=asc
+📤 2. HTTP Response (Server → Client)
+
+Also has 4 main components:
+
+1. Status Line
+
+Contains:
+
+HTTP version
+Status code
+Status message
+
+Example:
+
+HTTP/1.1 200 OK
+2. Status Codes (Very Important)
+
+👉 Categories:
+
+2xx → Success
+3xx → Redirection
+4xx → Client error
+5xx → Server error
+
+Examples:
+
+200 → OK
+201 → Created
+400 → Bad Request
+401 → Unauthorized
+404 → Not Found
+500 → Internal Server Error
+3. Headers
+
+Same concept as request
+
+Example:
+
+Content-Type: application/json
+Set-Cookie: sessionId=abc123
+Cache-Control: no-cache
+4. Body
+
+Actual data returned by server
+
+Example:
+
+{
+  "message": "User fetched successfully",
+  "data": {
+    "name": "Piyush"
+  }
+}
+🔁 Full Flow Example
+Request:
+POST /login HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "1234"
+}
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "token": "xyz123"
+}
+🧠 Key Concepts You MUST remember
+HTTP is stateless → every request is independent
+Headers carry metadata
+Body carries actual data
+Status codes tell result of request
+🚀 Interview Tip
+
+If interviewer asks:
+👉 “Explain HTTP request/response”
+
+You can say:
+
+“HTTP is a client-server protocol where the client sends a request containing method, headers, and optional body, and the server responds with a status code, headers, and body.”

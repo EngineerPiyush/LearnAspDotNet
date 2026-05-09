@@ -1,0 +1,6 @@
+@myfristdotnetApi_HostAddress = http://localhost:5216
+
+GET {{myfristdotnetApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
