@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<h2>this date is displayed from a view using blazor @DateTime.Now</h2>
+<h3>@DateTime.Now.Year</h3>
+@{
+    var name = "Piyush";
+    var age = 26;
+}
+<p>@name</p>
+<p>@age</p>
+
+@{
+    var gender = "Male";
+    if (gender == "Male")
+    {
+        <h2>Eligible for hookup</h2>
+    }
+    else
+    {
+       <h2>Not eligilble</h2>
+    }
+}
+@{
+    string[] names = new string[] {"Piyush", "Amit", "Pankaj"};
+    foreach(var item in names
+    )
+    {
+       <h2>@item</h2>
+    }
+}
+
