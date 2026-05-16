@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@* uing ViewData concept   *@
+
+@* <p>@ViewData["name"]</p>
+<p>@ViewData["age"]</p>
+
+@{
+    foreach (var item in (String[])ViewData["colleagues"])
+    {
+        <h3>@item</h3>
+    }
+
+    foreach (var item in (List<string>)ViewData["courses"])
+    {
+        <h3>@item</h3>
+    }
+} *@
+
+@* using ViewBag concept  *@
+
+@* <p>@ViewBag.name</p>
+<p>@ViewBag.age</p>
+<p>@ViewData["age"]</p>
+
+@{
+    foreach (var item in (String[])ViewBag.colleagues)
+    {
+        <h3>@item</h3>
+    }
+
+    foreach (var item in (List<string>)ViewBag.courses)
+    {
+        <h3>@item</h3>
+    }
+} *@
+
+
+@* using TempData concept *@
+
+<p>@ViewData["name"]</p>
+<p>@ViewData["age"]</p>
+<p>@TempData["tempData"]</p>
+
+
+
+
+
+

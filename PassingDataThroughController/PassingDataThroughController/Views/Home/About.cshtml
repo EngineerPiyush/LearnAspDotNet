@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+}
+
+<h1>This is About View</h1>
+
+@* <p>@ViewData["name"]</p> can not access *@
+<p>@TempData["tempData"]</p>
+
+@{
+// TempData flow:
+// Object → Serialization → Stored temporarily → Deserialization→Retrieved object
+    // TempData values are serialized/deserialized between requests,
+    // so retrieve them using their actual deserialized type.
+    foreach (var item in (String[])TempData["courses"])
+    {
+        <h4>@item</h4>
+    }
+}
+
+
