@@ -9,14 +9,18 @@
 <p>@TempData["tempData"]</p>
 
 @{
-// TempData flow:
-// Object → Serialization → Stored temporarily → Deserialization→Retrieved object
+    // TempData flow:
+    // Object → Serialization → Stored temporarily → Deserialization→Retrieved object
     // TempData values are serialized/deserialized between requests,
     // so retrieve them using their actual deserialized type.
-    foreach (var item in (String[])TempData["courses"])
+    if(TempData["courses"] != null)
     {
-        <h4>@item</h4>
+        foreach (var item in (String[])TempData["courses"])
+        {
+            <h4>@item</h4>
+        }
     }
+   
 }
 
 

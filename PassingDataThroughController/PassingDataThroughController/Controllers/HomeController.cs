@@ -36,19 +36,21 @@ namespace PassingDataThroughController.Controllers
             //the below statement is necessary to use to access temp data in another view (in this case About)
             //and it will work ony first request on the url next tome temp
             //and it will work ony first request on the url on next request tempata can not be access.
-            TempData.Keep("tempData");
             return RedirectToAction("About");
 
         }
 
         public IActionResult About()
         {
-             // this will keep the temp data for next request as well
+            // this will keep the temp data for next request as well
+            TempData.Keep("tempData");
+            TempData.Keep("courses");
             return View();
         }
 
         public IActionResult Contact()
         {
+            TempData.Keep("courses");
             return View();
         }
     }
