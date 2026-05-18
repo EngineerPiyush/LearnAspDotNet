@@ -1,5 +1,7 @@
-﻿@{
+﻿@using ModelInDotNetCore.Models;
+@{
     ViewData["Title"] = "Home Page";
+    var students = ViewData["myStudents"] as List<StudentModel>;
 }
 
 <div class="text-center">
@@ -8,3 +10,25 @@
         </p>
         <p>you have moved towards ahead in .net journey</p>
 </div>
+
+<table border="1">
+        <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        </tr>
+
+    @{
+        foreach(var student in students)
+        {
+            <tr>
+            <td>@student.rollNo</td>
+            <td>@student.name</td>
+            <td>@student.age</td>
+            <td>@student.city</td>
+            </tr>
+        }
+    }
+
+</table>
